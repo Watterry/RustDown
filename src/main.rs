@@ -2,11 +2,10 @@ use std::env;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
-use std::process::Command;
 
-fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>())
-}
+
+mod publish;
+use crate::publish::bookdown;
 
 fn main() -> std::io::Result<()> {
     println!("current folder");
@@ -27,10 +26,10 @@ fn main() -> std::io::Result<()> {
     let borrowed_string: &str = "/index.md";
     owned_string.push_str(borrowed_string);
 
-    let startContent = fs::read_to_string(owned_string)
+    let start_content = fs::read_to_string(owned_string)
                        .expect("Something went wrong reading the file");
-    println!("With text:\n{}", startContent);
-    file.write_all(startContent.as_bytes()).unwrap();
+    println!("With text:\n{}", start_content);
+    file.write_all(start_content.as_bytes()).unwrap();
 
     // read file one by one and write into a markdown file together
     for entry in paths {
@@ -48,7 +47,7 @@ fn main() -> std::io::Result<()> {
             println!( "filename:{}\n", filename );
 
             let banana: &str = "index.md";
-            if (!filename.eq(banana))
+            if !filename.eq(banana)
             {
                 let contents = fs::read_to_string(path)
                                .expect("Something went wrong reading the file");
@@ -61,13 +60,7 @@ fn main() -> std::io::Result<()> {
 
     drop(file);
 
-    //pandoc
-    //let output = Command::new("pandoc").arg("-s").arg("output.md").arg("-o").arg("example4.tex").output()?;
-    let output = Command::new("pandoc").arg("output.md").arg("--pdf-engine=xelatex").arg("-o").arg("example4.pdf").output()?;
-
-    if !output.status.success() {
-        println!("Command executed with failing error code");
-    }
+    bookdown::publish("output.md");
 
     Ok(())
 }
