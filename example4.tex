@@ -1,0 +1,76 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{ctexbook}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={在线音视频质量推断},
+  pdfauthor={Lin Xuhong, Email: linxuhong@yahoo.com},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{在线音视频质量推断}
+\author{Lin Xuhong, Email: linxuhong@yahoo.com}
+\date{2022-03-15}
+
+\begin{document}
+\maketitle
+
+总共分为若干章： 1. 总述，包括现有的仿真技术，以及业界动态 2.
+基本系统架构 3. 用户网络模型采集 4. 用户网络模型仿真 5.
+用户质量推断，即大数据分析\# 总述
+
+为什么要做用户网络仿真实验？ \# 用户带宽模型采集
+
+用灌水的方式，再用包对的方式来进行采集，那这里有一个关键问题，就是如何判断采集的准确度。
+
+满足两个假定，一个是灌水的方式是对带宽的精确模拟，二是对随机信号相似度的判定，是有可靠方法的。
+
+我们需要的是对网络的基本特征进行模拟，并不需要进行
+
+\hypertarget{ux5982ux4f55ux5224ux5b9aux6a21ux578bux91c7ux96c6ux7684ux51c6ux786eux5ea6}{%
+\subsection{如何判定模型采集的准确度？}\label{ux5982ux4f55ux5224ux5b9aux6a21ux578bux91c7ux96c6ux7684ux51c6ux786eux5ea6}}
+
+本质上我们判定两个随机信号序列的相似度
+
+\end{document}
